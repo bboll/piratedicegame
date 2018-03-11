@@ -24,3 +24,11 @@ setInterval(() => {
     client.send(new Date().toTimeString());
   });
 }, 10000);
+
+ws.on('open', function open() {
+  ws.send('Test message from server');
+});
+
+ws.on('message', function incoming(data) {
+  console.log(data);
+});
