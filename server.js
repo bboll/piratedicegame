@@ -25,10 +25,10 @@ setInterval(() => {
   });
 }, 10000);
 
-ws.on('open', function open() {
+wss.on('open', function open() {
   ws.send('Test message from server');
 });
 
-ws.on('message', function incoming(data) {
+wss.on('message', function incoming(data) {
   console.log(data);
 });
