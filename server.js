@@ -14,6 +14,8 @@ const ws = new SocketServer({ server });
 
 ws.on('connection', (ws) => {
   console.log('Client connected');
+  
+  ws.send('Test message from server.');
   ws.on('close', () => console.log('Client disconnected'));
 });
 
