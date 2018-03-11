@@ -1,0 +1,29 @@
+{
+  "name": "piratedicegame",
+  "version": "1.0.0",
+  "description": "pirate dice",
+  "main": "index.js",
+  "engines": {
+    "node": "6.2.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bboll/piratedicegame.git"
+  },
+  "author": "bboll",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bboll/piratedicegame/issues"
+  },
+  "homepage": "https://github.com/bboll/piratedicegame#readme",
+  "dependencies": {
+    "bufferutil": "3.0.3",
+    "express": "4.16.2",
+    "utf-8-validate": "4.0.0",
+    "ws": "5.0.0"
+  }
+}
