@@ -15,20 +15,26 @@ const ws = new SocketServer({ server });
 ws.on('connection', (ws) => {
   console.log('Client connected');
   
+  //Test send to client
   ws.send('Test message from server.');
-  ws.on('close', () => console.log('Client disconnected'));
-});
+  
+  //Test broadcast
+  setInterval(() => {
+	ws.clients.forEach((client) => {
+	  client.send(new Date().toTimeString());
+	});
+  }, 10000);
 
-setInterval(() => {
-  ws.clients.forEach((client) => {
-    client.send(new Date().toTimeString());
+  //Test open
+  ws.on('open', function open() {
+	ws.send('Test open message');
   });
-}, 10000);
 
-ws.on('open', function open() {
-  ws.send('Test message from server');
-});
-
-ws.on('message', function incoming(data) {
-  console.log(data);
+  //Log received data
+  ws.on('message', function incoming(data) {
+	console.log(data);
+  });
+  
+  //Close connection
+  ws.on('close', () => console.log('Client disconnected'));
 });
