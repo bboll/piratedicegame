@@ -10,7 +10,7 @@ const INDEX = path.join(__dirname, 'index.html');
 const server = express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-const wss = new SocketServer({ server });
+const ws = new SocketServer({ server });
 
 ws.on('connection', (ws) => {
   console.log('Client connected');
