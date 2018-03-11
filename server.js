@@ -16,7 +16,7 @@ const wss = new SocketServer({ server });
 
 wss.on('connection', (ws) => {
   console.log('Client connected');
-  ws.on('close', () => console.log('Client disconnected'));
+  wss.on('close', () => console.log('Client disconnected'));
 });
 
 setInterval(() => {
@@ -26,7 +26,7 @@ setInterval(() => {
 }, 10000);
 
 wss.on('open', function open() {
-  ws.send('Test message from server');
+  wss.send('Test message from server');
 });
 
 wss.on('message', function incoming(data) {
