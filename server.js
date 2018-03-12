@@ -17,13 +17,6 @@ ws.on('connection', (ws) => {
   
   //Test send to client
   ws.send('Test message from server.');
-  
-  //Test broadcast
-  setInterval(() => {
-	ws.clients.forEach((client) => {
-	  client.send(new Date().toTimeString());
-	});
-  }, 10000);
 
   //Test open
   ws.on('open', function open() {
